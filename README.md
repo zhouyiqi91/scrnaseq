@@ -3,10 +3,11 @@
 This repo has made the following modifications to the original [nf-core scrnaseq](https://github.com/nf-core/scrnaseq) workflow
 
 - Allows multiple barcode whitelist files to be provided to accommodate multiple barcode segments.
-- Add protocol for Singleron rna kit: scopeV3.0.1. Please note scopeV3.0.1 currently only support `--aligner star`
+- Add protocol for Singleron rna kit: scopeV3.0.1. Please note scopeV3.0.1 currently only support `--aligner star`.
 - Change the default value of STARsolo `star_feature` parameter to "GeneFull_Ex50pAS". Using the `GeneFull_Ex50pAS` parameter can effectively count reads mapped to intron.
 - Remove the default parameter `--twopassMode Basic` as it is not compatible with `GeneFull_Ex50pAS`.
-- Add `soloCellFilter` parameter and set default value "EmptyDrops_CR"
+- Add `soloCellFilter` parameter and set default value "EmptyDrops_CR".
+- Update the STAR version from 2.7.10b to the lastest version 2.7.11b as 2.7.11b fix some bugs.
 
 ## Usage
 
