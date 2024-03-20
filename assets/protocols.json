@@ -51,6 +51,11 @@
         },
         "smartseq": {
             "protocol": "SmartSeq"
+        },
+        "scopeV3.0.1": {
+            "protocol": "CB_UMI_Complex",
+            "extra_args": "--soloUMIlen 12 --soloCBposition 0_0_0_8 0_25_0_33 0_50_0_58 --soloUMIposition 0_60_0_71 --clip3pAdapterSeq AAAAAAAAAAAA --outFilterMatchNmin 50 --soloCBmatchWLtype 1MM",
+            "multiple_whitelist": "assets/whitelist/scopeV3.0.1/bclist1,assets/whitelist/scopeV3.0.1/bclist2,assets/whitelist/scopeV3.0.1/bclist3"
         }
     },
     "kallisto": {
