@@ -86,12 +86,19 @@ ch_txp2gene = params.txp2gene ? file(params.txp2gene) : []
 ch_multiqc_alevin = Channel.empty()
 ch_multiqc_star = Channel.empty()
 ch_multiqc_cellranger = Channel.empty()
-if (params.barcode_whitelist) {
-    ch_barcode_whitelist = file(params.barcode_whitelist)
-} else if (protocol_config.containsKey("whitelist")) {
-    ch_barcode_whitelist = file("$projectDir/${protocol_config['whitelist']}")
+
+if (protocol_config.containsKey("multiple_whitelist")) {
+    ws_list = protocol_config['multiple_whitelist'].split(',').collect{it -> "${projectDir}/${it}"}
+    ch_barcode_whitelist = Channel.of(ws_list).collect()
 } else {
-    ch_barcode_whitelist = []
+    if (params.barcode_whitelist) {
+        ch_barcode_whitelist = file(params.barcode_whitelist)
+    } else if (protocol_config.containsKey("whitelist")) {
+        wl = protocol_config['whitelist'].split(',').map( x)
+        ch_barcode_whitelist = file("$projectDir/${protocol_config['whitelist']}")
+    } else {
+        ch_barcode_whitelist = []
+    }
 }
 
 
