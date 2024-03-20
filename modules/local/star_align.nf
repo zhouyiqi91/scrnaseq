@@ -49,7 +49,7 @@ process STAR_ALIGN {
     // separate forward from reverse pairs
     def (forward, reverse) = reads.collate(2).transpose()
     // allow multiple whitelist; single whitelist is gzip by default; multiple whitelist are not gzip
-    def use_whitelist = whitelist.size()>1 ? whitelist.join(" ") : " <(gzip -cdf ${whitelist}) "
+    def use_whitelist = whitelist instanceof List ? whitelist.join(" ") : " <(gzip -cdf ${whitelist}) "
     """
     STAR \\
         --genomeDir $index \\

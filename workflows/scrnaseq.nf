@@ -94,7 +94,6 @@ if (protocol_config.containsKey("multiple_whitelist")) {
     if (params.barcode_whitelist) {
         ch_barcode_whitelist = file(params.barcode_whitelist)
     } else if (protocol_config.containsKey("whitelist")) {
-        wl = protocol_config['whitelist'].split(',').map( x)
         ch_barcode_whitelist = file("$projectDir/${protocol_config['whitelist']}")
     } else {
         ch_barcode_whitelist = []
