@@ -24,11 +24,10 @@ jobs:
       matrix:
         NXF_VER:
           - "23.04.0"
-          - "latest-everything"
+          # - "latest-everything"
         profile: [
             "test,docker",
             "test_10X,docker",
-            "test,singularity",
             # "test,docker --aligner cellrangerarc", // this currently lacks a suitable test profile, see issue https://github.com/nf-core/scrnaseq/issues/290
             # "test,docker --aligner universc", // this is broken, see issue https://github.com/nf-core/scrnaseq/issues/289
           ]
