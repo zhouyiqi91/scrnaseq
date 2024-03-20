@@ -3,8 +3,6 @@ name: nf-core CI
 on:
   push:
     branches:
-      - dev
-      - main
       - master
   pull_request:
   release:
